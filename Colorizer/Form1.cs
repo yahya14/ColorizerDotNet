@@ -170,10 +170,10 @@ namespace Colorizer
                 return;
             }
 
-            Gecko.poke(0x10613C2C, 0x5F476573);
-            Gecko.poke(0x10613C3C, 0x756C6174);
-            Gecko.poke(0x10613C4C, 0x68650000);
-            Gecko.poke(0x10613C88, 0x63650000);
+            Gecko.poke(0x1061483C, 0x5F476573);
+            Gecko.poke(0x10614844, 0x756C6174);
+            Gecko.poke(0x10614858, 0x68650000);
+            Gecko.poke(0x10614890, 0x63650000);
 
             if (Gecko.peek(0x12CDADA0) == 0x000003F2)
             {
