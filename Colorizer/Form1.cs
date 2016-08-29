@@ -14,6 +14,7 @@ namespace Colorizer
         float colornR, colornG, colornB, colornA;
 
         uint colorstart = 0x12D28180;
+        uint diff = 0x0;
 
         public MainForm()
         {
@@ -88,7 +89,6 @@ namespace Colorizer
                     MessageBox.Show("Failed to write color data to memory.\n\n" + exc, "Operation failed.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 ColorNLabel.Text = colornR.ToString() + "," + colornG.ToString() + "," + colornB.ToString();
-                ColorNLabel.Text = colorDialog1.Color.ToArgb().ToString();
                 NeutralShowBox.BackColor = colorDialog1.Color;
             }
         }
@@ -172,7 +172,6 @@ namespace Colorizer
             }
 
             Gecko.poke(0x10014cfc, 0x00000001);
-
             Gecko.poke(0x10613C2C, 0x5F476573);
             Gecko.poke(0x10613C3C, 0x756C6174);
             Gecko.poke(0x10613C4C, 0x68650000);
@@ -189,139 +188,6 @@ namespace Colorizer
             SettingsGroupBox.Enabled = false;
             DisconnButton.Enabled = false;
             ConnectButton.Enabled = true;
-        }
-
-        private void writeString(string s, uint offset)
-        {
-            uint push = 0;
-            int pos = 0;
-            if (offset % 4 != 0)
-            {
-                push = s[pos++];
-                offset -= offset % 4;
-                Gecko.poke(offset, push);
-                offset += 4;
-            }
-            for (; pos < s.Length; pos += 2, offset += 4)
-            {
-                if (pos + 1 == s.Length)
-                {
-                    push = (uint)(s[pos] << 16) + (Gecko.peek(offset) & 0xFF);
-                }
-                push = (uint)(s[pos] << 16) + s[pos + 1];
-                Gecko.poke(offset, push);
-            }
-        }
-
-        private void writeStringSimple(uint offset, string s)
-        {
-            writeStringSimple(offset, s, s.Length);
-        }
-        private void writeStringSimple(uint offset, string s, int length)
-        {
-            uint push = 0;
-            int pos = 0;
-            if (offset % 4 != 0)
-            {
-                for (int i = 0; i < offset % 4; i++)
-                {
-                    push = push << 8 | s[pos++];
-                }
-                if (offset % 4 == 1)
-                {
-                    push = Gecko.peek(offset - offset % 4) & 0xFF000000 | push;
-                }
-                if (offset % 4 == 2)
-                {
-                    push = Gecko.peek(offset - offset % 4) & 0xFFFF0000 | push;
-                }
-                if (offset % 4 == 3)
-                {
-                    push = Gecko.peek(offset - offset % 4) & 0xFFFFFF00 | push;
-                }
-                Gecko.poke(offset, push);
-                offset += offset % 4;
-            }
-            for (; pos < s.Length; offset += 4)
-            {
-                push = 0;
-                if (pos + 1 == s.Length)
-                {
-                    push = (uint)s[pos++] << 24 | Gecko.peek(offset) & 0x00FFFFFF;
-                    Gecko.poke(offset, push);
-                    offset += 1;
-                    break;
-                }
-                if (pos + 2 == s.Length)
-                {
-                    push = s[pos++];
-                    push = push << 8 | s[pos++];
-                    push = push << 16 | Gecko.peek(offset) & 0x0000FFFF;
-                    Gecko.poke(offset, push);
-                    offset += 2;
-                    break;
-                }
-                if (pos + 3 == s.Length)
-                {
-                    push = s[pos++];
-                    push = push << 8 | s[pos++];
-                    push = push << 8 | s[pos++];
-                    push = push << 8 | Gecko.peek(offset) & 0x000000FF;
-                    Gecko.poke(offset, push);
-                    break;
-                }
-                for (int i = 0; i < 4; i++)
-                {
-                    push = push << 8 | s[pos++];
-                }
-                Gecko.poke(offset, push);
-            }
-            for (; pos < length; offset += 4, pos += 4)
-            {
-                if (pos % 4 == 1)
-                {
-                    Gecko.poke(offset, Gecko.peek(offset) & 0xFF000000);
-                    pos--;
-                    continue;
-                }
-                if (pos % 4 == 2)
-                {
-                    Gecko.poke(offset, Gecko.peek(offset) & 0xFFFF0000);
-                    pos--; pos--;
-                    continue;
-                }
-                if (pos % 4 == 3)
-                {
-                    Gecko.poke(offset, Gecko.peek(offset) & 0xFFFFFF00);
-                    pos--; pos--; pos--;
-                    continue;
-                }
-                if (pos + 1 == length)
-                {
-                    push = Gecko.peek(offset) & 0x00FFFFFF;
-                    Gecko.poke(offset, push);
-                    offset += 1;
-                    pos++;
-                    break;
-                }
-                if (pos + 2 == length)
-                {
-                    push = Gecko.peek(offset) & 0x0000FFFF;
-                    Gecko.poke(offset, push);
-                    offset += 2;
-                    pos += 2;
-                    break;
-                }
-                if (pos + 3 == length)
-                {
-                    push = Gecko.peek(offset) & 0x000000FF;
-                    Gecko.poke(offset, push);
-                    offset += 3;
-                    pos += 3;
-                    break;
-                }
-                Gecko.poke(offset, 0);
-            }
         }
     }
 }
