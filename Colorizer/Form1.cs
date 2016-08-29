@@ -167,7 +167,7 @@ namespace Colorizer
             }
             catch (GeckoDotNet.ETCPGeckoException exc)
             {
-                MessageBox.Show("Connection to the TCPGecko failed: \n\n" + exc.Message + "\n\nCheck your network connection/firewall.", "Connection failed", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Connection to the TCPGecko failed: \n\n" + exc + "\n\nCheck your network connection/firewall.", "Connection failed", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
 
