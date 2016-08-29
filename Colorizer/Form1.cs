@@ -181,7 +181,7 @@ namespace Colorizer
             }
             else if (Gecko.peek(0x12CE2DA0) == 0x000003F2)
             {
-                colorstart = colorstart - 0x8000;
+                colorstart = colorstart - 0x1000;
             }
             else if (Gecko.peek(0x12CE3DA0) == 0x000003F2)
             {
