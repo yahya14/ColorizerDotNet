@@ -14,7 +14,6 @@ namespace Colorizer
         float colornR, colornG, colornB, colornA;
 
         uint colorstart = 0x12D28180;
-        uint diff = 0x0;
 
         public MainForm()
         {
@@ -171,11 +170,30 @@ namespace Colorizer
                 return;
             }
 
-            Gecko.poke(0x10014cfc, 0x00000001);
             Gecko.poke(0x10613C2C, 0x5F476573);
             Gecko.poke(0x10613C3C, 0x756C6174);
             Gecko.poke(0x10613C4C, 0x68650000);
             Gecko.poke(0x10613C88, 0x63650000);
+
+            if (Gecko.peek(0x12CDADA0) == 0x000003F2)
+            {
+                colorstart = colorstart - 0x9000;
+            }
+            else if (Gecko.peek(0x12CE2DA0) == 0x000003F2)
+            {
+                colorstart = colorstart - 0x8000;
+            }
+            else if (Gecko.peek(0x12CE3DA0) == 0x000003F2)
+            {
+                //made on here so nothing
+            }
+            else
+            {
+                MessageBox.Show("Could not find the Splattershot Jr. in memory. Try using TCPGecko from loadiine.ovh. If that does not work, the tool might need to be updated for a newer version of Splatoon.");
+
+                Gecko.Disconnect();
+                return;
+            }
 
             SettingsGroupBox.Enabled = true;
             DisconnButton.Enabled = true;
