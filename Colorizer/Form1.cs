@@ -13,7 +13,7 @@ namespace Colorizer
         float colorbR, colorbG, colorbB, colorbA;
         float colornR, colornG, colornB, colornA;
 
-        uint colorstart = 0x12D28180;
+        uint diff;
 
         public MainForm()
         {
@@ -32,14 +32,128 @@ namespace Colorizer
                 coloraB = colorDialog1.Color.B;
                 coloraA = colorDialog1.Color.A;
                 try {
-                    Gecko.poke(colorstart, float2Hex(coloraR / 256.0F));
-                    Gecko.poke(colorstart + 0x4, float2Hex(coloraG / 256.0F));
-                    Gecko.poke(colorstart + 0x8, float2Hex(coloraB / 256.0F));
-                }catch (GeckoDotNet.ETCPGeckoException exc)
+                    //current colors
+                    Gecko.poke(0x12D1F180 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12D1F180 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12D1F180 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Green_Default
+                    Gecko.poke(0x12674F74 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12674F74 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12674F74 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Yellow
+                    Gecko.poke(0x12675334 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12675334 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12675334 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Turquoise
+                    Gecko.poke(0x126756F4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126756F4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126756F4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_DarkBlue
+                    Gecko.poke(0x12675AB4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12675AB4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12675AB4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Marigold
+                    Gecko.poke(0x12675E74 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12675E74 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12675E74 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Soda
+                    Gecko.poke(0x126765F4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126765F4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126765F4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Lilac
+                    Gecko.poke(0x126769B4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126769B4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126769B4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_LumiGreen
+                    Gecko.poke(0x12676D74 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12676D74 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12676D74 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Orange
+                    Gecko.poke(0x12677134 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12677134 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12677134 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_NightLumiGreen
+                    Gecko.poke(0x126774F4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126774F4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126774F4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_NightMarigold
+                    Gecko.poke(0x126778B4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126778B4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126778B4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_OrangeBlue_Default
+                    Gecko.poke(0x12683F84 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12683F84 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12683F84 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_GreenPurple
+                    Gecko.poke(0x12684344 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12684344 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12684344 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkBlue
+                    Gecko.poke(0x12684704 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12684704 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12684704 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkOrange
+                    Gecko.poke(0x12684AC4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12684AC4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12684AC4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_BlueLime
+                    Gecko.poke(0x12684E84 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12684E84 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12684E84 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkGreen
+                    Gecko.poke(0x12685244 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12685244 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12685244 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_TurquoiseOrange
+                    Gecko.poke(0x12685604 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12685604 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12685604 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Regular_LightBlueDarkBlue
+                    Gecko.poke(0x126859C4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126859C4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126859C4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Gachi_YellowLilac_Default
+                    Gecko.poke(0x12692F94 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12692F94 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12692F94 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Gachi_GreenMazenta
+                    Gecko.poke(0x12693354 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12693354 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12693354 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Gachi_GreenOrange
+                    Gecko.poke(0x12693714 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12693714 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12693714 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Gachi_SodaPink
+                    Gecko.poke(0x12693AD4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12693AD4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12693AD4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Gachi_LightgreenBlue
+                    Gecko.poke(0x12693E94 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12693E94 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12693E94 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Gachi_LumigreenPurple
+                    Gecko.poke(0x12694254 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12694254 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12694254 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Gachi_DarkblueYellow
+                    Gecko.poke(0x12694614 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x12694614 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x12694614 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Msn_Option_Yellow
+                    Gecko.poke(0x126A1FA4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126A1FA4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126A1FA4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                    //GfxSetting_Vss_Option_BlueOrange
+                    Gecko.poke(0x126B0FB4 + diff, float2Hex(coloraR / 256.0F));
+                    Gecko.poke(0x126B0FB4 + diff + 0x4, float2Hex(coloraG / 256.0F));
+                    Gecko.poke(0x126B0FB4 + diff + 0x8, float2Hex(coloraB / 256.0F));
+                }
+                catch (GeckoDotNet.ETCPGeckoException exc)
                 {
                     MessageBox.Show("Failed to write color data to memory.\n\n" + exc, "Operation failed.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
-            ColorALabel.Text = coloraR.ToString() + "," + coloraG.ToString() + "," + coloraB.ToString();
+                ColorALabel.Text = coloraR.ToString() + ", " + coloraG.ToString() + ", " + coloraB.ToString();
                 AlphaShowBox.BackColor = colorDialog1.Color;
             }
         }
@@ -56,14 +170,128 @@ namespace Colorizer
                 colorbB = colorDialog1.Color.B;
                 colorbA = colorDialog1.Color.A;
                 try {
-                Gecko.poke(colorstart + 0x10, float2Hex(colorbR / 256.0F));
-                Gecko.poke(colorstart + 0x14, float2Hex(colorbG / 256.0F));
-                Gecko.poke(colorstart + 0x18, float2Hex(colorbB / 256.0F));
-                }catch (GeckoDotNet.ETCPGeckoException exc)
+                    //current colors
+                    Gecko.poke(0x12D1F180 + diff + 0x10, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12D1F180 + diff + 0x14, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12D1F180 + diff + 0x18, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Green_Default
+                    Gecko.poke(0x12674F74 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12674F74 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12674F74 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Yellow
+                    Gecko.poke(0x12675334 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12675334 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12675334 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Turquoise
+                    Gecko.poke(0x126756F4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126756F4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126756F4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_DarkBlue
+                    Gecko.poke(0x12675AB4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12675AB4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12675AB4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Marigold
+                    Gecko.poke(0x12675E74 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12675E74 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12675E74 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Soda
+                    Gecko.poke(0x126765F4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126765F4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126765F4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Lilac
+                    Gecko.poke(0x126769B4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126769B4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126769B4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_LumiGreen
+                    Gecko.poke(0x12676D74 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12676D74 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12676D74 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Orange
+                    Gecko.poke(0x12677134 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12677134 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12677134 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_NightLumiGreen
+                    Gecko.poke(0x126774F4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126774F4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126774F4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_NightMarigold
+                    Gecko.poke(0x126778B4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126778B4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126778B4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_OrangeBlue_Default
+                    Gecko.poke(0x12683F84 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12683F84 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12683F84 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_GreenPurple
+                    Gecko.poke(0x12684344 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12684344 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12684344 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkBlue
+                    Gecko.poke(0x12684704 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12684704 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12684704 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkOrange
+                    Gecko.poke(0x12684AC4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12684AC4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12684AC4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_BlueLime
+                    Gecko.poke(0x12684E84 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12684E84 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12684E84 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkGreen
+                    Gecko.poke(0x12685244 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12685244 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12685244 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_TurquoiseOrange
+                    Gecko.poke(0x12685604 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12685604 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12685604 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Regular_LightBlueDarkBlue
+                    Gecko.poke(0x126859C4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126859C4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126859C4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Gachi_YellowLilac_Default
+                    Gecko.poke(0x12692F94 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12692F94 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12692F94 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Gachi_GreenMazenta
+                    Gecko.poke(0x12693354 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12693354 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12693354 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Gachi_GreenOrange
+                    Gecko.poke(0x12693714 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12693714 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12693714 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Gachi_SodaPink
+                    Gecko.poke(0x12693AD4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12693AD4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12693AD4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Gachi_LightgreenBlue
+                    Gecko.poke(0x12693E94 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12693E94 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12693E94 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Gachi_LumigreenPurple
+                    Gecko.poke(0x12694254 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12694254 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12694254 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Gachi_DarkblueYellow
+                    Gecko.poke(0x12694614 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x12694614 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x12694614 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Msn_Option_Yellow
+                    Gecko.poke(0x126A1FA4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126A1FA4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126A1FA4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                    //GfxSetting_Vss_Option_BlueOrange
+                    Gecko.poke(0x126B0FB4 + diff + 0x64, float2Hex(colorbR / 256.0F));
+                    Gecko.poke(0x126B0FB4 + diff + 0x68, float2Hex(colorbG / 256.0F));
+                    Gecko.poke(0x126B0FB4 + diff + 0x6C, float2Hex(colorbB / 256.0F));
+                }
+                catch (GeckoDotNet.ETCPGeckoException exc)
                 {
                     MessageBox.Show("Failed to write color data to memory.\n\n" + exc, "Operation failed.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
-                ColorBLabel.Text = colorbR.ToString() + "," + colorbG.ToString() + "," + colorbB.ToString();
+                ColorBLabel.Text = colorbR.ToString() + ", " + colorbG.ToString() + ", " + colorbB.ToString();
                 BravoShowBox.BackColor = colorDialog1.Color;
             }
         }
@@ -80,14 +308,128 @@ namespace Colorizer
                 colornB = colorDialog1.Color.B;
                 colornA = colorDialog1.Color.A;
                 try {
-                    Gecko.poke(colorstart + 0x20, float2Hex(colornR / 256.0F));
-                    Gecko.poke(colorstart + 0x24, float2Hex(colornG / 256.0F));
-                    Gecko.poke(colorstart + 0x28, float2Hex(colornB / 256.0F));
-                }catch(GeckoDotNet.ETCPGeckoException exc)
+                    //current colors
+                    Gecko.poke(0x12D1F180 + diff + 0x20, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12D1F180 + diff + 0x24, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12D1F180 + diff + 0x28, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Green_Default
+                    Gecko.poke(0x12674F74 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12674F74 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12674F74 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Yellow
+                    Gecko.poke(0x12675334 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12675334 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12675334 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Turquoise
+                    Gecko.poke(0x126756F4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126756F4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126756F4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_DarkBlue
+                    Gecko.poke(0x12675AB4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12675AB4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12675AB4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Marigold
+                    Gecko.poke(0x12675E74 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12675E74 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12675E74 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Soda
+                    Gecko.poke(0x126765F4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126765F4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126765F4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Lilac
+                    Gecko.poke(0x126769B4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126769B4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126769B4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_LumiGreen
+                    Gecko.poke(0x12676D74 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12676D74 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12676D74 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Orange
+                    Gecko.poke(0x12677134 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12677134 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12677134 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_NightLumiGreen
+                    Gecko.poke(0x126774F4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126774F4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126774F4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_NightMarigold
+                    Gecko.poke(0x126778B4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126778B4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126778B4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_OrangeBlue_Default
+                    Gecko.poke(0x12683F84 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12683F84 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12683F84 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_GreenPurple
+                    Gecko.poke(0x12684344 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12684344 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12684344 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkBlue
+                    Gecko.poke(0x12684704 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12684704 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12684704 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkOrange
+                    Gecko.poke(0x12684AC4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12684AC4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12684AC4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_BlueLime
+                    Gecko.poke(0x12684E84 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12684E84 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12684E84 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_PinkGreen
+                    Gecko.poke(0x12685244 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12685244 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12685244 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_TurquoiseOrange
+                    Gecko.poke(0x12685604 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12685604 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12685604 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Regular_LightBlueDarkBlue
+                    Gecko.poke(0x126859C4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126859C4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126859C4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Gachi_YellowLilac_Default
+                    Gecko.poke(0x12692F94 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12692F94 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12692F94 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Gachi_GreenMazenta
+                    Gecko.poke(0x12693354 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12693354 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12693354 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Gachi_GreenOrange
+                    Gecko.poke(0x12693714 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12693714 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12693714 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Gachi_SodaPink
+                    Gecko.poke(0x12693AD4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12693AD4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12693AD4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Gachi_LightgreenBlue
+                    Gecko.poke(0x12693E94 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12693E94 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12693E94 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Gachi_LumigreenPurple
+                    Gecko.poke(0x12694254 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12694254 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12694254 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Gachi_DarkblueYellow
+                    Gecko.poke(0x12694614 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x12694614 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x12694614 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Msn_Option_Yellow
+                    Gecko.poke(0x126A1FA4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126A1FA4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126A1FA4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                    //GfxSetting_Vss_Option_BlueOrange
+                    Gecko.poke(0x126B0FB4 + diff + 0xC8, float2Hex(colornR / 256.0F));
+                    Gecko.poke(0x126B0FB4 + diff + 0xCC, float2Hex(colornG / 256.0F));
+                    Gecko.poke(0x126B0FB4 + diff + 0xD0, float2Hex(colornB / 256.0F));
+                }
+                catch(GeckoDotNet.ETCPGeckoException exc)
                 {
                     MessageBox.Show("Failed to write color data to memory.\n\n" + exc, "Operation failed.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
-                ColorNLabel.Text = colornR.ToString() + "," + colornG.ToString() + "," + colornB.ToString();
+                ColorNLabel.Text = colornR.ToString() + ", " + colornG.ToString() + ", " + colornB.ToString();
                 NeutralShowBox.BackColor = colorDialog1.Color;
             }
         }
@@ -96,17 +438,17 @@ namespace Colorizer
         {
             try
             {
-                coloraR = hexToFloat(Gecko.peek(colorstart)) * 256;
-                coloraG = hexToFloat(Gecko.peek(colorstart + 0x4)) * 256;
-                coloraB = hexToFloat(Gecko.peek(colorstart + 0x8)) * 256;
+                coloraR = hexToFloat(Gecko.peek(0x12D1F180 + diff)) * 256;
+                coloraG = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x4)) * 256;
+                coloraB = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x8)) * 256;
 
-                colorbR = hexToFloat(Gecko.peek(colorstart + 0x10)) * 256;
-                colorbG = hexToFloat(Gecko.peek(colorstart + 0x14)) * 256;
-                colorbB = hexToFloat(Gecko.peek(colorstart + 0x18)) * 256;
+                colorbR = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x10)) * 256;
+                colorbG = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x14)) * 256;
+                colorbB = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x18)) * 256;
 
-                colornR = hexToFloat(Gecko.peek(colorstart + 0x20)) * 256;
-                colornG = hexToFloat(Gecko.peek(colorstart + 0x24)) * 256;
-                colornB = hexToFloat(Gecko.peek(colorstart + 0x28)) * 256;
+                colornR = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x20)) * 256;
+                colornG = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x24)) * 256;
+                colornB = hexToFloat(Gecko.peek(0x12D1F180 + diff + 0x28)) * 256;
 
                 if (coloraR > 255) { coloraR = 255; } //Nintendo uses color values >255 sometimes, so we gotta do that
                 if (coloraG > 255) { coloraG = 255; }
@@ -126,9 +468,9 @@ namespace Colorizer
                 MessageBox.Show("Failed to read color data from memory.\n\n" + exc, "Operation failed.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
 
-            ColorALabel.Text = Math.Round(coloraR).ToString() + ", " + Math.Round(coloraG).ToString() + ", " + Math.Round(coloraB).ToString()/* + "\n" + String.Format("{0:x2}", Gecko.peek(colorstart)) + ", " + String.Format("{0:x2}", Gecko.peek(colorstart + 0x4)) + "\n" + String.Format("{0:x2}", Gecko.peek(colorstart + 0x8))*/;
-            ColorBLabel.Text = Math.Round(colorbR).ToString() + ", " + Math.Round(colorbG).ToString() + ", " + Math.Round(colorbB).ToString()/* + "\n" + String.Format("{0:x2}", Gecko.peek(colorstart + 0x10)) + ", " + String.Format("{0:x2}", Gecko.peek(colorstart + 0x14)) + "\n" + String.Format("{0:x2}", Gecko.peek(colorstart + 0x18))*/;
-            ColorNLabel.Text = Math.Round(colornR).ToString() + ", " + Math.Round(colornG).ToString() + ", " + Math.Round(colornB).ToString()/* + "\n" + String.Format("{0:x2}", Gecko.peek(colorstart + 0x20)) + ", "+ String.Format("{0:x2}", Gecko.peek(colorstart + 0x24)) + "\n" + String.Format("{0:x2}", Gecko.peek(colorstart + 0x28))*/;
+            ColorALabel.Text = Math.Round(coloraR).ToString() + ", " + Math.Round(coloraG).ToString() + ", " + Math.Round(coloraB).ToString()/* + "\n" + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff)) + ", " + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x4)) + "\n" + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x8))*/;
+            ColorBLabel.Text = Math.Round(colorbR).ToString() + ", " + Math.Round(colorbG).ToString() + ", " + Math.Round(colorbB).ToString()/* + "\n" + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x10)) + ", " + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x14)) + "\n" + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x18))*/;
+            ColorNLabel.Text = Math.Round(colornR).ToString() + ", " + Math.Round(colornG).ToString() + ", " + Math.Round(colornB).ToString()/* + "\n" + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x20)) + ", "+ String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x24)) + "\n" + String.Format("{0:x2}", Gecko.peek(0x12D1F180 + diff + 0x28))*/;
 
             Color colorA = Color.FromArgb(Convert.ToInt32(coloraR), Convert.ToInt32(coloraG), Convert.ToInt32(coloraB));
             Color colorB = Color.FromArgb(Convert.ToInt32(colorbR), Convert.ToInt32(colorbG), Convert.ToInt32(colorbB));
@@ -170,22 +512,17 @@ namespace Colorizer
                 return;
             }
 
-            Gecko.poke(0x1061483C, 0x5F476573);
-            Gecko.poke(0x10614844, 0x756C6174);
-            Gecko.poke(0x10614858, 0x68650000);
-            Gecko.poke(0x10614890, 0x63650000);
-
             if (Gecko.peek(0x12CDADA0) == 0x000003F2)
             {
-                colorstart = colorstart - 0x9000;
+                diff = 0x0;
             }
             else if (Gecko.peek(0x12CE2DA0) == 0x000003F2)
             {
-                colorstart = colorstart - 0x1000;
+                diff = 0x8000;
             }
             else if (Gecko.peek(0x12CE3DA0) == 0x000003F2)
             {
-                //made on here so nothing
+                diff = 0x9000;
             }
             else
             {
@@ -194,6 +531,16 @@ namespace Colorizer
                 Gecko.Disconnect();
                 return;
             }
+
+            //disables online because Nintendo detects color changing
+            Gecko.poke(0x1061483C + diff, 0x5F476573);
+            Gecko.poke(0x10614844 + diff, 0x756C6174);
+            Gecko.poke(0x10614858 + diff, 0x68650000);
+            Gecko.poke(0x10614890 + diff, 0x63650000);
+            Gecko.poke(0x10614880 + diff, 0x73656372);
+            Gecko.poke(0x10614874 + diff, 0x65742074);
+            Gecko.poke(0x12AEF24C + diff, 0x65787421);
+            Gecko.poke(0x12B4D45C + diff, 0xDEADCAFE);
 
             SettingsGroupBox.Enabled = true;
             DisconnButton.Enabled = true;
