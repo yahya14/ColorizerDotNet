@@ -96,11 +96,13 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(54, 206);
+            this.label2.Location = new System.Drawing.Point(12, 206);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 13);
+            this.label2.Size = new System.Drawing.Size(347, 26);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Thanks to cFLean, Sheldon and NWPlayer for help";
+            this.label2.Text = "Thanks to cFLean, Sheldon and NWPlayer for help\r\nNote: This tool disables online " +
+    "until restart because Nintendo can detect it";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SettingsGroupBox
             // 
@@ -226,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 228);
+            this.ClientSize = new System.Drawing.Size(373, 242);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SettingsGroupBox);
             this.Controls.Add(this.groupBox1);
