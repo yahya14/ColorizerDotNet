@@ -98,10 +98,10 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(12, 206);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(347, 26);
+            this.label2.Size = new System.Drawing.Size(350, 26);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Thanks to cFLean, Sheldon and NWPlayer for help\r\nNote: This tool disables online " +
-    "until restart because Nintendo can detect it";
+            this.label2.Text = "Thanks to Nefarious, cFLean, Sheldon and NWPlayer for help.\r\nNote: This tool disa" +
+    "bles online until restart because Nintendo can detect it.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SettingsGroupBox
@@ -237,7 +237,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
-            this.Text = "Colorizer";
+            this.Text = "Colorizer - Splatoon 2.12.0";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.SettingsGroupBox.ResumeLayout(false);

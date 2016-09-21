@@ -532,15 +532,26 @@ namespace Colorizer
                 return;
             }
 
-            //disables online because Nintendo detects color changing
-            Gecko.poke(0x1061483C + diff, 0x5F476573);
-            Gecko.poke(0x10614844 + diff, 0x756C6174);
-            Gecko.poke(0x10614858 + diff, 0x68650000);
-            Gecko.poke(0x10614890 + diff, 0x63650000);
-            Gecko.poke(0x10614880 + diff, 0x73656372);
-            Gecko.poke(0x10614874 + diff, 0x65742074);
-            Gecko.poke(0x12AEF24C + diff, 0x65787421);
-            Gecko.poke(0x12B4D45C + diff, 0xDEADCAFE);
+            //check for "_Fes" indicating the offsets used by the online disabler haven't moved
+            if (Gecko.peek(0x1061484C) == 0x5F466573)
+            {
+                //disables online because Nintendo detects color changing
+                Gecko.poke(0x1061484C, 0x5F476573);
+                Gecko.poke(0x10614854, 0x756C6174);
+                Gecko.poke(0x10614868, 0x68650000);
+                Gecko.poke(0x106148A0, 0x63650000);
+                Gecko.poke(0x10614890, 0x73656372);
+                Gecko.poke(0x10614884, 0x65742074);
+                Gecko.poke(0x12AEF24C + diff, 0x65787421);
+                Gecko.poke(0x12B4D45C + diff, 0xDEADCAFE);
+            }
+            else
+            {
+                MessageBox.Show("This ColorizerDotNet version isn't compatible with your Splatoon version. Check to see if there is a new ColorizerDotNet version available.");
+
+                Gecko.Disconnect();
+                return;
+            }
 
             SettingsGroupBox.Enabled = true;
             DisconnButton.Enabled = true;
