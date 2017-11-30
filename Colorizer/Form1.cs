@@ -512,17 +512,11 @@ namespace Colorizer
                 return;
             }
 
-            if (Gecko.peek(0x12CDADA0) == 0x000003F2)
+            //offset difference checker
+            uint JRAddr = Gecko.peek(0x106E975C) + 0x92D8;
+            if (Gecko.peek(JRAddr) == 0x000003F2)
             {
-                diff = 0x0;
-            }
-            else if (Gecko.peek(0x12CE2DA0) == 0x000003F2)
-            {
-                diff = 0x8000;
-            }
-            else if (Gecko.peek(0x12CE3DA0) == 0x000003F2)
-            {
-                diff = 0x9000;
+                diff = JRAddr - 0x12CDADA0;
             }
             else
             {
